@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title>Perfil Pessoal - Daniel Lucas</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 960px;
+            background-color: #1e1e2f;
+            margin: 50px auto;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 2px solid #2e2e3e;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #2d2d3d;
+            background-image: url('https://via.placeholder.com/100');
+            background-size: cover;
+            background-position: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #00bcd4;
+            margin: 0;
+        }
+
+        h2 {
+            color: #03dac6;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        p, ul {
+            font-size: 17px;
+            color: #e0e0e0;
+            line-height: 1.7;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .matricula {
+            text-align: right;
+            font-weight: bold;
+            color: #90caf9;
+            margin-top: 30px;
+            font-size: 16px;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 14px;
+            color: #aaa;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .profile-img {
+                width: 80px;
+                height: 80px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile-img"></div>
+            <div>
+                <h1>Daniel Lucas de O Gonçalves</h1>
+                <p style="color: #bbbbbb;">Estudante de Redes de Computação</p>
+            </div>
+        </header>
+
+        <section>
+            <h2>Curso de Graduação</h2>
+            <p>Atualmente, sou graduando em <strong>Redes de Computação</strong> pela Universidade Estácio de Sá. O curso é voltado para a formação de profissionais capazes de planejar, implementar e gerenciar redes de computadores em ambientes corporativos, com foco em segurança da informação, infraestrutura de rede, conectividade e tecnologias emergentes.</p>
+        </section>
+
+        <section>
+            <h2>Áreas de Estudo no Curso</h2>
+            <p>Durante a graduação, estudo disciplinas fundamentais como:</p>
+            <ul>
+                <li>Arquitetura de Redes</li>
+                <li>Segurança da Informação</li>
+                <li>Administração de Sistemas Operacionais</li>
+                <li>Protocolos de Comunicação</li>
+                <li>Serviços de Rede (DNS, DHCP, FTP, etc.)</li>
+                <li>Infraestrutura e Cabeamento</li>
+                <li>Virtualização e Computação em Nuvem</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Objetivo Profissional</h2>
+            <p>Busco me especializar na área de <strong>infraestrutura de redes e segurança da informação</strong>, atuando no planejamento, implantação e suporte de ambientes tecnológicos corporativos. Tenho como meta desenvolver soluções eficientes, estáveis e seguras que atendam às demandas do mercado, sempre acompanhando a evolução das tecnologias de rede.</p>
+        </section>
+
+        <div class="matricula">Matrícula: 202308769421</div>
+
+        <footer>
+            &copy; 2025 - Daniel Lucas de O Gonçalves
+        </footer>
+    </div>
+</body>
+</html>
