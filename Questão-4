@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title>Calculadora de IMC - Daniel Lucas</title>
+
+    <!-- Fonte exclusiva para dar identidade única -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+
+    <style>
+        /* Fonte exclusiva: Montserrat */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #1a1a2e;
+            margin: 0;
+            padding: 0;
+            color: #f1f1f1;
+        }
+
+        .container {
+            max-width: 700px;
+            background-color: #2c2c54;
+            margin: 60px auto;
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            text-align: justify;
+            position: relative;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00a8ff;
+            margin-bottom: 30px;
+            user-select: none;
+            /* Pequeno efeito de brilho só pra dar personalidade */
+            text-shadow: 0 0 5px #00a8ff, 0 0 10px #00a8ff;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        label {
+            font-weight: 700;
+            margin-bottom: 5px;
+            display: block;
+            user-select: none;
+        }
+
+        input[type="number"] {
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            background-color: #f1f1f1;
+            color: #1a1a2e;
+            width: 100%;
+            box-sizing: border-box;
+            transition: box-shadow 0.3s ease;
+        }
+        input[type="number"]:focus {
+            outline: none;
+            box-shadow: 0 0 8px 2px #00a8ff;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #0097e6;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.15s ease;
+            width: 180px;
+            align-self: center;
+            user-select: none;
+            font-weight: 700;
+            letter-spacing: 1.1px;
+        }
+
+        button:hover {
+            background-color: #00a8ff;
+        }
+        button:active {
+            transform: scale(0.95);
+            background-color: #007bb5;
+        }
+
+        .resultado {
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #1e3799;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.6s ease, max-height 0.6s ease;
+            user-select: none;
+        }
+        .resultado.show {
+            opacity: 1;
+            max-height: 200px; /* espaço para o texto */
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #4b4b8f;
+            margin: 30px 0;
+        }
+
+        /* Assinatura discreta no rodapé */
+        .assinatura {
+            position: absolute;
+            bottom: 12px;
+            right: 15px;
+            font-size: 12px;
+            color: #4b4b8f;
+            font-style: italic;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de IMC</h1>
+
+        <form id="formIMC">
+            <div>
+                <label for="peso">Peso (kg):</label>
+                <input type="number" id="peso" name="peso" step="0.1" min="1" placeholder="Ex: 70.5" />
+            </div>
+            <div>
+                <label for="altura">Altura (m):</label>
+                <input type="number" id="altura" name="altura" step="0.01" min="0.5" max="2.5" placeholder="Ex: 1.75" />
+            </div>
+            <button type="submit">Calcular</button>
+        </form>
+
+        <div id="resultado" class="resultado"></div>
+
+        <hr />
+
+        <div class="assinatura">Daniel Lucas de O Gonçalves &bull; 2025</div>
+    </div>
+
+    <script>
+        // Função exclusiva para transformar a mensagem antes de mostrar
+        function mensagemPersonalizada(imc, classificacao) {
+            return `Olá, Daniel Lucas! Seu IMC é <strong>${imc.toFixed(2)}</strong> — <em>${classificacao}</em>. Cuide-se sempre! 💪`;
+        }
+
+        document.getElementById('formIMC').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const peso = parseFloat(document.getElementById('peso').value);
+            const altura = parseFloat(document.getElementById('altura').value);
+            const resultadoDiv = document.getElementById('resultado');
+
+            resultadoDiv.classList.remove('show');
+            resultadoDiv.style.backgroundColor = '#1e3799'; // cor padrão azul
+
+            if (isNaN(peso) || isNaN(altura) || peso <= 0 || altura <= 0) {
+                resultadoDiv.style.backgroundColor = '#e74c3c'; // vermelho para erro
+                resultadoDiv.innerHTML = 'Por favor, insira valores válidos para peso e altura.';
+                resultadoDiv.classList.add('show');
+                return;
+            }
+
+            const imc = peso / (altura * altura);
+            let classificacao = '';
+
+            if (imc < 18.5) {
+                classificacao = 'Abaixo do peso';
+            } else if (imc < 24.9) {
+                classificacao = 'Peso normal';
+            } else if (imc < 29.9) {
+                classificacao = 'Sobrepeso';
+            } else if (imc < 34.9) {
+                classificacao = 'Obesidade grau I';
+            } else if (imc < 39.9) {
+                classificacao = 'Obesidade grau II';
+            } else {
+                classificacao = 'Obesidade grau III';
+            }
+
+            // Mensagem personalizada com html e emoji (exclusiva)
+            resultadoDiv.innerHTML = mensagemPersonalizada(imc, classificacao);
+            resultadoDiv.classList.add('show');
+        });
+    </script>
+</body>
+</html>
