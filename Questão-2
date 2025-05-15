@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabela de Produtos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a2e;
+            margin: 0;
+            padding: 0;
+            color: #f1f1f1;
+        }
+
+        .container {
+            max-width: 900px;
+            background-color: #2c2c54;
+            margin: 60px auto;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #00a8ff;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        thead {
+            background-color: #0097e6;
+            color: #ffffff;
+        }
+
+        th, td {
+            padding: 14px 16px;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #3a3a6a;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #2c2c54;
+        }
+
+        tbody tr:hover {
+            background-color: #41417b;
+        }
+
+        th {
+            font-weight: bold;
+        }
+
+        .matricula {
+            text-align: right;
+            font-weight: bold;
+            color: #00a8ff;
+            margin-top: 40px;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #4b4b8f;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tabela de Produtos</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Preço (R$)</th>
+                    <th>Categoria</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>💻 Notebook Gamer</td>
+                    <td>R$ 4.500,00</td>
+                    <td>Eletrônicos</td>
+                    <td>Alta performance para jogos e multitarefas.</td>
+                </tr>
+                <tr>
+                    <td>📱 Smartphone</td>
+                    <td>R$ 2.300,00</td>
+                    <td>Eletrônicos</td>
+                    <td>Tela OLED, bateria duradoura e ótimo desempenho.</td>
+                </tr>
+                <tr>
+                    <td>⌨️ Teclado Mecânico</td>
+                    <td>R$ 350,00</td>
+                    <td>Periféricos</td>
+                    <td>Switches azuis e retroiluminação RGB.</td>
+                </tr>
+                <tr>
+                    <td>🖥️ Monitor 27"</td>
+                    <td>R$ 1.200,00</td>
+                    <td>Periféricos</td>
+                    <td>Alta resolução com taxa de atualização de 144Hz.</td>
+                </tr>
+                <tr>
+                    <td>🖱️ Mouse Gamer</td>
+                    <td>R$ 250,00</td>
+                    <td>Periféricos</td>
+                    <td>Design ergonômico e sensor de alta precisão.</td>
+                </tr>
+                <tr>
+                    <td>🎧 Headset com Microfone</td>
+                    <td>R$ 180,00</td>
+                    <td>Áudio</td>
+                    <td>Som estéreo de alta qualidade e conforto prolongado.</td>
+                </tr>
+                <tr>
+                    <td>🔌 Roteador Wi-Fi 6</td>
+                    <td>R$ 320,00</td>
+                    <td>Redes</td>
+                    <td>Alta velocidade, ideal para múltiplos dispositivos.</td>
+                </tr>
+                <tr>
+                    <td>📷 Webcam Full HD</td>
+                    <td>R$ 210,00</td>
+                    <td>Acessórios</td>
+                    <td>Imagem nítida para videoconferências e streaming.</td>
+                </tr>
+                <tr>
+                    <td>🗃️ SSD 1TB</td>
+                    <td>R$ 490,00</td>
+                    <td>Armazenamento</td>
+                    <td>Alta velocidade de leitura e gravação.</td>
+                </tr>
+                <tr>
+                    <td>🧊 Cooler para CPU</td>
+                    <td>R$ 150,00</td>
+                    <td>Hardware</td>
+                    <td>Controle térmico eficiente com baixo ruído.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+        <p class="matricula">Matrícula: 202308769421</p>
+    </div>
+</body>
+</html>
